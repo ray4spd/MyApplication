@@ -4,6 +4,7 @@ from time import ctime
 import RPi.GPIO as GPIO
 Socket_Servo.Setup()
 
+# this is the F from the app
 ctrCmd = ['U','D',"F"]
 
 HOST = ''
@@ -35,8 +36,10 @@ while True:
 				print("1: ", data)
 				Socket_Servo.ServoDown()
 			print ("Down: ", Socket_Servo.x)
+			# this is the recieve condition
 			if data == ctrCmd[2]:
 				print("2: ", data)
+				# that's the action
 				Socket_Servo.ServoFeed()
 			print ("Feed: ", Socket_Servo.x)
 	except KeyboardInterrupt:
